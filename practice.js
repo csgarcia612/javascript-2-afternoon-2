@@ -127,7 +127,19 @@ var numbersArray = [1,2,34,54,55,34,32,11,19,17,54,66,13];
 
 //Code Here
 
-
+function divider(numbersArray){
+  var evensArray = [];
+  var oddsArray = [];
+  for (var i = 0; i < numbersArray.length; i++){
+    if (numbersArray[i] % 2 === 0){
+      evensArray.push(numbersArray[i]);
+    }
+    else if (numbersArray[i] % 2 !== 0){
+      oddsArray.push(numbersArray[i]);
+    }
+  }
+  return comboArray = [evensArray, oddsArray];
+}
 
 ////////// PROBLEM 7 //////////
 
@@ -148,7 +160,15 @@ var getRandomArbitrary = function() {
 
 //Code Here
 
-
+function finder(arr){
+  var randomNumber = getRandomArbitrary();
+  for (var i = 0; i < arr.length; i++){
+      if (arr[i] === randomNumber){
+        return true;
+      }
+    }
+  return false;
+}
 
 ////////// PROBLEM 8 //////////
 
@@ -177,7 +197,36 @@ var myGroceryList = ['chips', 'pizza', 'hotpockets', 'MtnDew', 'corndogs'];
 
 //Code Here
 
+function removeItem(arr, item){
+  if(!arr || !item){
+    return []
+  }
+  else{
+    arr.forEach((val, i, arr)=>{
+      if(val === item){
+          arr.splice(i, 1)
+        }
+      }
+    )
+    return arr;
+  }
+}
 
+function addItem(arr, item){
+  if(!arr || ! item){
+    return []
+  }
+  else{
+    arr.push(item);
+  }
+  return arr;
+}
+
+// function addItem(myGroceryList, item){
+//   for (var i = myGroceryList.length - 1; i >=0; i--){
+//     if (){}
+//   }
+// }
 
 ////////// PROBLEM 9 //////////
 
@@ -187,7 +236,21 @@ var myGroceryList = ['chips', 'pizza', 'hotpockets', 'MtnDew', 'corndogs'];
 
 //Code Here
 
+function maker(){
+  let arr = [];
+  for(var i = 1; i <= 215; i++){
+    arr.push(i)
+  }
+  return arr;
+}
 
+// function maker(){
+//   var arr1 = [];
+//   for (var i = 1; i <= 215; i++){
+//     arr1.push(i);
+//   }
+//   return arr1;
+// }
 
 ////////// PROBLEM 10 //////////
 
@@ -203,6 +266,19 @@ var numbers = [5, '9', 16, 19, '25', '34', 48];
   
 //Code Here
 
+function addTen(numbers){
+  var newNumbers = [];
+  numbers.forEach((val, i, arr)=>{
+    if(typeof(val) !== "number"){
+      var changedToNum = parseInt(val, 10);
+      newNumbers.push(changedToNum + 10);
+    }
+    else{
+      newNumbers.push(val + 10);
+    }
+  })
+  return newNumbers;
+}
 
 
 ////////// PROBLEM 11 //////////
@@ -228,7 +304,16 @@ for(var i = 0; i < num2; i++){
 
 //Code Here
 
-
+function longer(arr1, arr2){
+  var longestArr = [];
+  if(arr1.length > arr2.length){
+    longestArr = arr1;
+  }
+  else if(arr2.length > arr1.length){
+    longestArr = arr2;
+  }
+  return longestArr;
+}
 
 /*
   As a continuation of the previous problem, write another function called 'both'.
@@ -240,7 +325,15 @@ for(var i = 0; i < num2; i++){
 
 //Code Here
 
-
+function both(arr1, arr2){
+  var joinedArr = [];
+  arr1.forEach((val, i, arr)=>{
+    if(arr2.indexOf(val) !== -1){
+      joinedArr.push(val);
+    }
+  })
+  return joinedArr;
+}
 
 ////////// PROBLEM 12 //////////
 
@@ -280,7 +373,9 @@ var colt = {
 
 //Code Here
 
+devMountainEmployees.push(tyler, cahlan, ryan, colt);
 
+console.log(devMountainEmployees.length);
 
 /*
   Now let's say Cahlan has a mental breakdown and has to take a leave of absence to 'find himself'.
@@ -289,7 +384,11 @@ var colt = {
 
 //Code Here
 
-
+devMountainEmployees.forEach((val, i, arr)=>{
+  if(val.name === "Cahlan"){
+    devMountainEmployees.splice(i, 1)
+  }
+})
 
 ////////// PROBLEM 13 //////////
 
@@ -300,7 +399,6 @@ var colt = {
 */
 
 //Code Here
-
 
 
 /*
@@ -320,7 +418,21 @@ var user1 = {
 
 //Code Here
 
+var user2 = {
+  name: "Tom Tompson",
+  email: "doublet@gmail.com",
+  password: "a1b2c3",
+  username: "tttrouble"
+};
 
+var user3 = {
+  name: "Jane Smith",
+  email: "shera29@geocities.net",
+  password: "grayskull",
+  username: "shera29"
+};
+
+var users = [user1, user2, user3];
 
 /*
   Now you have a very common data structure. 
@@ -334,7 +446,11 @@ var user1 = {
 
 //Code Here
 
-
+for(var i = 0; i < users.length; i++){
+  if(users[i].email === 'tylermcginnis33@gmail.com'){
+    users.splice(i, 1)
+  }
+}
 
 /*
   The activity we just did is very much how data works in 'the real world'.
